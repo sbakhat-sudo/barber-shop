@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daoudi Barber Shop · Genova</title>
+  <meta name="description" content="Barbiere a Genova, Via Antonio Gramsci 75r: taglio, barba e rasatura a lama. Prenota il tuo posto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Applica il tema salvato prima del render per evitare il flash
+    try { var t = localStorage.getItem("daoudi-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a href="#top" class="logo">DAOUDI <span>S.R.L.S</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#servizi">Servizi</a>
+      <a href="#team">Team</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambia tema" title="Cambia tema"><span></span></button>
+      <a href="#prenota" class="btn btn-accent btn-sm">Prenota</a>
+      <button class="burger" id="burger" type="button" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="ph hero-bg" data-label="Foto interno barber shop"><img src="img/hero.jpg" alt="Interno del barber shop" onerror="this.remove()"></div>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <div class="hero-kicker"><i class="dot"></i><span>Genova · Via A. Gramsci 75r</span></div>
+      <h1>Taglio netto.<br>Stile vero.</h1>
+      <p>Barbiere di quartiere a Genova: taglio, barba e rasatura come si deve, in un ambiente industriale senza fronzoli.</p>
+      <div class="hero-cta">
+        <a href="#prenota" class="btn btn-accent">Prenota ora</a>
+        <a href="#servizi" class="btn btn-ghost">Vedi servizi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIZI -->
+  <section id="servizi" class="section">
+    <div class="section-head">
+      <h2>Servizi <span>&amp; Prezzi</span></h2>
+      <span class="muted small">Listino aggiornato 2026</span>
+    </div>
+    <ul class="services" id="services">
+      <li><div><h3>Taglio uomo</h3><p>Taglio classico o moderno, su misura</p></div><div class="svc-meta"><span>30 min</span><strong>€18</strong></div></li>
+      <li><div><h3>Barba</h3><p>Rifinitura e modellatura con rasoio</p></div><div class="svc-meta"><span>20 min</span><strong>€14</strong></div></li>
+      <li><div><h3>Taglio + Barba</h3><p>Il combo completo</p></div><div class="svc-meta"><span>50 min</span><strong>€28</strong></div></li>
+      <li><div><h3>Rasatura a lama</h3><p>Rasatura tradizionale con panno caldo</p></div><div class="svc-meta"><span>25 min</span><strong>€16</strong></div></li>
+      <li><div><h3>Taglio bambino</h3><p>Fino a 12 anni</p></div><div class="svc-meta"><span>25 min</span><strong>€13</strong></div></li>
+      <li><div><h3>Trattamento viso</h3><p>Pulizia e idratazione post rasatura</p></div><div class="svc-meta"><span>20 min</span><strong>€15</strong></div></li>
+      <li><div><h3>Colore barba</h3><p>Copertura o schiarimento naturale</p></div><div class="svc-meta"><span>35 min</span><strong>€22</strong></div></li>
+      <li><div><h3>Shampoo e styling</h3><p>Lavaggio e piega finale</p></div><div class="svc-meta"><span>15 min</span><strong>€10</strong></div></li>
+    </ul>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section alt">
+    <h2>Il <span>Team</span></h2>
+    <p class="lead">Tre barbieri, un'unica regola: precisione prima di tutto.</p>
+    <div class="team">
+      <article>
+        <div class="ph portrait" data-label="Foto barbiere"><img src="img/team-1.jpg" alt="Karim Daoudi" onerror="this.remove()"></div>
+        <h3>Karim Daoudi</h3><span class="role">Titolare / Master Barber</span>
+      </article>
+      <article>
+        <div class="ph portrait" data-label="Foto barbiere"><img src="img/team-2.jpg" alt="Luca Ferraro" onerror="this.remove()"></div>
+        <h3>Luca Ferraro</h3><span class="role">Barbiere</span>
+      </article>
+      <article>
+        <div class="ph portrait" data-label="Foto barbiere"><img src="img/team-3.jpg" alt="Samir Haddad" onerror="this.remove()"></div>
+        <h3>Samir Haddad</h3><span class="role">Barbiere</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALLERIA -->
+  <section id="galleria" class="section">
+    <h2>Galleria</h2>
+    <div class="gallery">
+      <div class="ph" data-label="Foto"><img src="img/gal-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Foto"><img src="img/gal-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Foto"><img src="img/gal-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Foto"><img src="img/gal-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Foto"><img src="img/gal-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Foto"><img src="img/gal-6.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    </div>
+  </section>
+
+  <!-- PRENOTAZIONE -->
+  <section id="prenota" class="section alt">
+    <div class="split">
+      <div>
+        <h2>Prenota il tuo <span>posto</span></h2>
+        <p class="lead">Compila il modulo: si apre WhatsApp con il messaggio già pronto, tu lo invii e ti confermiamo l'appuntamento. Per cambi last-minute chiamaci direttamente.</p>
+        <div class="contact-lines">
+          <div>Indirizzo: Via Antonio Gramsci 75r, 16100 Genova</div>
+          <div>Telefono: <a href="tel:+393513624891">+39 351 362 4891</a></div>
+        </div>
+      </div>
+      <form class="card form" id="booking-form" novalidate>
+        <label>Nome<input name="name" autocomplete="name" required></label>
+        <label>Telefono<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Servizio
+          <select name="service" id="service-select"></select>
+        </label>
+        <div class="row2">
+          <label>Data<input name="date" type="date" required></label>
+          <label>Ora<input name="time" type="time" min="08:30" max="20:00" step="900" required></label>
+        </div>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-accent">Prenota su WhatsApp</button>
+      </form>
+      <div class="card confirm" id="booking-done" hidden>
+        <h3>Quasi fatto!</h3>
+        <p id="booking-summary"></p>
+        <button type="button" class="btn btn-ghost" id="booking-reset">Nuova prenotazione</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENSIONI -->
+  <section id="recensioni" class="section">
+    <h2>Recensioni</h2>
+    <div class="reviews">
+      <figure class="card">
+        <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>"Il miglior taglio che abbia mai avuto a Genova. Ambiente curato e professionalità vera."</blockquote>
+        <figcaption>— Marco B.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="stars" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>"Ho portato mio figlio per il primo taglio, pazienza e precisione. Torneremo sicuramente."</blockquote>
+        <figcaption>— Giulia R.</figcaption>
+      </figure>
+      <figure class="card">
+        <div class="stars" aria-label="4 stelle su 5">★★★★☆</div>
+        <blockquote>"Barba perfetta con rasoio tradizionale. Locale con un bello stile industriale."</blockquote>
+        <figcaption>— Andrea T.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ORARI E CONTATTI -->
+  <section id="contatti" class="section alt split">
+    <div>
+      <h2>Orari</h2>
+      <ul class="hours" id="hours">
+        <li data-day="1"><span>Lunedì</span><span>Chiuso</span></li>
+        <li data-day="2"><span>Martedì</span><span>09:00 – 19:30</span></li>
+        <li data-day="3"><span>Mercoledì</span><span>09:00 – 19:30</span></li>
+        <li data-day="4"><span>Giovedì</span><span>09:00 – 19:30</span></li>
+        <li data-day="5"><span>Venerdì</span><span>09:00 – 20:00</span></li>
+        <li data-day="6"><span>Sabato</span><span>08:30 – 18:00</span></li>
+        <li data-day="0"><span>Domenica</span><span>Chiuso</span></li>
+      </ul>
+      <div class="contact-lines">
+        <h3>Contatti</h3>
+        <div>Via Antonio Gramsci 75r, 16100 Genova</div>
+        <div><a href="tel:+393513624891">+39 351 362 4891</a></div>
+        <div><a href="mailto:info@daoudibarber.it">info@daoudibarber.it</a></div>
+      </div>
+    </div>
+    <div class="map">
+      <iframe title="Mappa Daoudi Barber Shop" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Via+Antonio+Gramsci+75r,+16126+Genova&output=embed"></iframe>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section">
+    <div class="section-head">
+      <h2>@daoudibarber</h2>
+      <a href="https://www.instagram.com/daoudibarber/" target="_blank" rel="noopener" class="link-strong">Seguici su Instagram →</a>
+    </div>
+    <div class="ig">
+      <div class="ph" data-label="Post IG"><img src="img/ig-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Post IG"><img src="img/ig-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Post IG"><img src="img/ig-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Post IG"><img src="img/ig-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Post IG"><img src="img/ig-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+      <div class="ph" data-label="Post IG"><img src="img/ig-6.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="logo">DAOUDI <span>S.R.L.S</span></div>
+    <div class="small">© <span id="year">2026</span> Daoudi S.r.l.s — Via Antonio Gramsci 75r, Genova</div>
+  </footer>
+
+  <a href="#prenota" class="fab btn btn-accent" id="fab">Prenota</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
