@@ -5,7 +5,7 @@ originale fornito (`Design sito barbershop italiano.zip`).
 
 ## File
 
-- `index.html` — struttura della pagina (hero, servizi, team, galleria, contatti/prenotazione, recensioni, orari, Instagram)
+- `index.html` — struttura della pagina (hero, servizi, team, galleria, contatti/prenotazione, recensioni, orari)
 - `style.css` — stile moderno, animazioni scroll-reveal, hover, tema chiaro/scuro, layout responsive
 - `script.js` — dati del sito, rendering dinamico, toggle tema, menu mobile, area manager
 - `img/` — foto di default (placeholder finché non carichi le tue, vedi sotto)
@@ -33,7 +33,7 @@ con il numero/indirizzo del negozio.
 
 In fondo alla pagina c'è il link **"⚙ Area manager"**. Inserendo la password si entra in
 modalità modifica e si può cambiare: testo hero, servizi e prezzi, team (nome/ruolo/foto),
-foto della galleria e di Instagram, recensioni, orari e dati di contatto.
+foto della galleria, recensioni, orari e dati di contatto.
 
 - **Password attuale:** `Daoudi2026` — modificabile nel file `script.js`, costante `ADMIN_PASSWORD`
   in cima al file. Va cambiata prima di rendere il sito pubblico.
@@ -56,12 +56,10 @@ direttamente dall'Area manager (vengono salvate solo nel tuo browser, vedi sopra
 - `img/hero.jpg` — foto interno del locale (sfondo della prima sezione)
 - `img/team-1.jpg`, `img/team-2.jpg`, `img/team-3.jpg` — foto dei tre barbieri
 - `img/gal-1.jpg` … `img/gal-6.jpg` — foto galleria
-- `img/ig-1.jpg` … `img/ig-6.jpg` — post Instagram
 
 ## Cosa personalizzare nel codice
 
 - Testi hero, servizi/prezzi, team, recensioni, orari, contatti → `script.js`, oggetto `DEFAULTS`
-- Link Instagram reale → `index.html`, cerca `instagram.com/daoudibarber`
 - Numero di telefono/WhatsApp ed email → `script.js`, oggetto `DEFAULTS.contact`
   (aggiornano automaticamente tutti i pulsanti "Chiama", "Email", "WhatsApp" del sito)
 

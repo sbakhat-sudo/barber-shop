@@ -84,7 +84,7 @@ input, textarea, select, button { font-family:'Barlow',sans-serif; }
 }
 .ph img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
 .ph img:not([src]), .ph img[src=""] { display:none; }
-.gallery .ph:hover img, .ig .ph:hover img { transform:scale(1.07); }
+.gallery .ph:hover img { transform:scale(1.07); }
 .tilt { transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0)); transition:transform .15s ease; will-change:transform; }
 .tilt:not(:hover) { transition:transform .4s ease; }
 .hero-bg img { animation:kenburns 14s ease-out forwards; }
@@ -214,8 +214,6 @@ input, textarea, select, button { font-family:'Barlow',sans-serif; }
 
 /* ===== Gallery / Instagram ===== */
 .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); grid-auto-rows:220px; gap:12px; }
-.ig { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; }
-.ig .ph { aspect-ratio:1/1; }
 .link-strong { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--text); }
 .link-strong:hover { color:var(--accent-text); }
 

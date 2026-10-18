@@ -44,14 +44,6 @@
       { id: "gal-5", photoDefault: "img/gal-5.jpg", photo: null },
       { id: "gal-6", photoDefault: "img/gal-6.jpg", photo: null }
     ],
-    ig: [
-      { id: "ig-1", photoDefault: "img/ig-1.jpg", photo: null },
-      { id: "ig-2", photoDefault: "img/ig-2.jpg", photo: null },
-      { id: "ig-3", photoDefault: "img/ig-3.jpg", photo: null },
-      { id: "ig-4", photoDefault: "img/ig-4.jpg", photo: null },
-      { id: "ig-5", photoDefault: "img/ig-5.jpg", photo: null },
-      { id: "ig-6", photoDefault: "img/ig-6.jpg", photo: null }
-    ],
     reviews: [
       { name: "Marco B.", stars: "★★★★★", text: "Il miglior taglio che abbia mai avuto a Genova. Ambiente curato e professionalità vera." },
       { name: "Giulia R.", stars: "★★★★★", text: "Ho portato mio figlio per il primo taglio, pazienza e precisione. Torneremo sicuramente." },
@@ -392,7 +384,6 @@
     renderServices();
     renderTeam();
     renderPhotoGrid("gallery-list", state.gallery, 1280);
-    renderPhotoGrid("ig-list", state.ig, 1000);
     renderReviews();
     renderHours();
     renderContact();
@@ -456,12 +447,6 @@
       state.counter++;
       state.gallery.push({ id: "gal-" + state.counter, photoDefault: "", photo: null });
       persist(); renderPhotoGrid("gallery-list", state.gallery, 1280);
-    });
-    var addIg = document.getElementById("add-ig");
-    if (addIg) addIg.addEventListener("click", function () {
-      state.counter++;
-      state.ig.push({ id: "ig-" + state.counter, photoDefault: "", photo: null });
-      persist(); renderPhotoGrid("ig-list", state.ig, 1000);
     });
     var addRev = document.getElementById("add-review");
     if (addRev) addRev.addEventListener("click", function () {
