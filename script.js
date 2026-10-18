@@ -22,14 +22,14 @@
       email: "info@daoudibarber.it"
     },
     services: [
-      { name: "Taglio uomo", desc: "Taglio classico o moderno, su misura", time: "30 min", price: "€18" },
-      { name: "Barba", desc: "Rifinitura e modellatura con rasoio", time: "20 min", price: "€14" },
-      { name: "Taglio + Barba", desc: "Il combo completo", time: "50 min", price: "€28" },
-      { name: "Rasatura a lama", desc: "Rasatura tradizionale con panno caldo", time: "25 min", price: "€16" },
-      { name: "Taglio bambino", desc: "Fino a 12 anni", time: "25 min", price: "€13" },
-      { name: "Trattamento viso", desc: "Pulizia e idratazione post rasatura", time: "20 min", price: "€15" },
-      { name: "Colore barba", desc: "Copertura o schiarimento naturale", time: "35 min", price: "€22" },
-      { name: "Shampoo e styling", desc: "Lavaggio e piega finale", time: "15 min", price: "€10" }
+      { name: "Taglio uomo", desc: "Taglio classico o moderno, su misura", price: "€18" },
+      { name: "Barba", desc: "Rifinitura e modellatura con rasoio", price: "€14" },
+      { name: "Taglio + Barba", desc: "Il combo completo", price: "€28" },
+      { name: "Rasatura a lama", desc: "Rasatura tradizionale con panno caldo", price: "€16" },
+      { name: "Taglio bambino", desc: "Fino a 12 anni", price: "€13" },
+      { name: "Trattamento viso", desc: "Pulizia e idratazione post rasatura", price: "€15" },
+      { name: "Colore barba", desc: "Copertura o schiarimento naturale", price: "€22" },
+      { name: "Shampoo e styling", desc: "Lavaggio e piega finale", price: "€10" }
     ],
     team: [
       { id: "team-1", name: "Karim Daoudi", role: "Titolare / Master Barber", photoDefault: "img/team-1.jpg", photo: null },
@@ -219,7 +219,6 @@
         li.className = "svc-edit-row";
         li.appendChild(inputFor(s, "name", "Nome servizio"));
         li.appendChild(inputFor(s, "desc", "Descrizione"));
-        li.appendChild(inputFor(s, "time", "Durata"));
         li.appendChild(inputFor(s, "price", "Prezzo"));
         var rm = el("button", "photo-remove-btn", "✕");
         rm.type = "button";
@@ -228,10 +227,9 @@
         li.appendChild(rm);
       } else {
         li.innerHTML =
-          '<div><h3></h3><p></p></div><div class="svc-meta"><span></span><strong></strong></div>';
+          '<div><h3></h3><p></p></div><div class="svc-meta"><strong></strong></div>';
         li.querySelector("h3").textContent = s.name;
         li.querySelector("p").textContent = s.desc;
-        li.querySelector(".svc-meta span").textContent = s.time;
         li.querySelector(".svc-meta strong").textContent = s.price;
         staggerReveal(li, i);
       }
@@ -444,7 +442,7 @@
 
     var addSvc = document.getElementById("add-service");
     if (addSvc) addSvc.addEventListener("click", function () {
-      state.services.push({ name: "Nuovo servizio", desc: "Descrizione", time: "20 min", price: "€0" });
+      state.services.push({ name: "Nuovo servizio", desc: "Descrizione", price: "€0" });
       persist(); renderServices();
     });
     var addTeam = document.getElementById("add-team");
