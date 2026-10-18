@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  var THEME_KEY = "daoudi-theme";
   var CONTENT_KEY = "daoudi-content-v3";
   var SESSION_KEY = "daoudi-admin-session";
 
@@ -457,20 +456,6 @@
     try { if (sessionStorage.getItem(SESSION_KEY) === "1") setEditMode(true); } catch (e) {}
   }
 
-  // ---------- Tema chiaro/scuro ----------
-  function initTheme() {
-    var saved = null;
-    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
-    if (saved) document.documentElement.dataset.theme = saved;
-    var btn = document.getElementById("theme-toggle");
-    btn.addEventListener("click", function () {
-      var current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
-      var next = current === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = next;
-      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
-    });
-  }
-
   // ---------- Menu mobile ----------
   function initMenu() {
     var burger = document.getElementById("burger");
@@ -556,7 +541,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initTheme();
     initMenu();
     initYear();
     renderAll();

@@ -6,8 +6,8 @@ originale fornito (`Design sito barbershop italiano.zip`).
 ## File
 
 - `index.html` — struttura della pagina (hero, servizi, team, galleria, contatti/prenotazione, recensioni, orari)
-- `style.css` — stile moderno, animazioni scroll-reveal, hover, tema chiaro/scuro, layout responsive
-- `script.js` — dati del sito, rendering dinamico, toggle tema, menu mobile, area manager
+- `style.css` — stile moderno (tema scuro), animazioni scroll-reveal, hover, layout responsive
+- `script.js` — dati del sito, rendering dinamico, menu mobile, area manager
 - `img/` — foto di default (placeholder finché non carichi le tue, vedi sotto)
 
 ## Come vederlo in locale
