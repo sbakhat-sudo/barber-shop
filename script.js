@@ -233,9 +233,16 @@
         li.querySelector("p").textContent = s.desc;
         li.querySelector(".svc-meta span").textContent = s.time;
         li.querySelector(".svc-meta strong").textContent = s.price;
+        staggerReveal(li, i);
       }
       ul.appendChild(li);
     });
+  }
+
+  function staggerReveal(node, i) {
+    node.classList.add("reveal");
+    node.style.transitionDelay = Math.min(i * 0.07, 0.5) + "s";
+    return node;
   }
 
   function inputFor(obj, field, placeholder) {
@@ -252,12 +259,13 @@
     wrap.innerHTML = "";
     state.team.forEach(function (t, i) {
       var art = el("article");
-      var slotWrap = el("div", "portrait");
+      var slotWrap = el("div", "portrait tilt");
       slotWrap.style.position = "relative";
       slotWrap.appendChild(photoSlot({
         label: "Foto barbiere", defaultSrc: t.photoDefault, src: t.photo, maxDim: 900,
         onUpload: function (dataUrl) { t.photo = dataUrl; persist(); renderTeam(); }
       }));
+      initTilt(slotWrap);
       art.appendChild(slotWrap);
       if (editMode) {
         art.appendChild(inputFor(t, "name", "Nome"));
@@ -269,6 +277,7 @@
       } else {
         art.appendChild(el("h3", null, escapeHTML(t.name)));
         art.appendChild(el("span", "role", escapeHTML(t.role)));
+        staggerReveal(art, i);
       }
       wrap.appendChild(art);
     });
@@ -279,11 +288,15 @@
     var wrap = document.getElementById(containerId);
     wrap.innerHTML = "";
     list.forEach(function (g, i) {
-      wrap.appendChild(photoSlot({
+      var slot = photoSlot({
         label: "Foto", defaultSrc: g.photoDefault, src: g.photo, maxDim: maxDim,
         onUpload: function (dataUrl) { g.photo = dataUrl; persist(); renderPhotoGrid(containerId, list, maxDim); },
         onRemove: editMode ? function () { list.splice(i, 1); persist(); renderPhotoGrid(containerId, list, maxDim); } : null
-      }));
+      });
+      slot.classList.add("tilt");
+      initTilt(slot);
+      if (!editMode) staggerReveal(slot, i);
+      wrap.appendChild(slot);
     });
   }
 
@@ -308,6 +321,7 @@
         card.appendChild(el("div", "stars", escapeHTML(r.stars)));
         card.appendChild(el("blockquote", null, "“" + escapeHTML(r.text) + "”"));
         card.appendChild(el("figcaption", null, "— " + escapeHTML(r.name)));
+        staggerReveal(card, i);
       }
       wrap.appendChild(card);
     });
@@ -494,11 +508,79 @@
     document.getElementById("year").textContent = String(new Date().getFullYear());
   }
 
+  // ---------- Effetti: nav allo scroll ----------
+  function initNavScroll() {
+    var nav = document.querySelector(".nav");
+    function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 40); }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // ---------- Effetti: logo forbici che "taglia" all'avvio ----------
+  function initLogoIntro() {
+    document.querySelectorAll(".logo-scissors").forEach(function (svg) {
+      svg.classList.add("intro");
+      setTimeout(function () { svg.classList.remove("intro"); }, 1600);
+    });
+  }
+
+  // ---------- Effetti: spotlight che segue il cursore nell'hero ----------
+  function initHeroSpotlight() {
+    var hero = document.querySelector(".hero");
+    var spot = document.getElementById("hero-spotlight");
+    if (!hero || !spot) return;
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      var x = ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%";
+      var y = ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%";
+      spot.style.setProperty("--mx", x);
+      spot.style.setProperty("--my", y);
+    });
+  }
+
+  // ---------- Effetti: tilt 3D sulle foto al passaggio del mouse ----------
+  function initTilt(node) {
+    if (!node || node.dataset.tiltBound) return;
+    node.dataset.tiltBound = "1";
+    node.addEventListener("pointermove", function (e) {
+      var r = node.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      node.style.setProperty("--ry", (px * 14).toFixed(2) + "deg");
+      node.style.setProperty("--rx", (py * -14).toFixed(2) + "deg");
+    });
+    node.addEventListener("pointerleave", function () {
+      node.style.setProperty("--rx", "0deg");
+      node.style.setProperty("--ry", "0deg");
+    });
+  }
+
+  // ---------- Effetti: ripple al click sui pulsanti ----------
+  function initRipple() {
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".btn, .btn-dashed");
+      if (!btn) return;
+      var r = btn.getBoundingClientRect();
+      var size = Math.max(r.width, r.height) * 1.4;
+      var span = document.createElement("span");
+      span.className = "ripple";
+      span.style.width = span.style.height = size + "px";
+      span.style.left = (e.clientX - r.left - size / 2) + "px";
+      span.style.top = (e.clientY - r.top - size / 2) + "px";
+      btn.appendChild(span);
+      span.addEventListener("animationend", function () { span.remove(); });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initTheme();
     initMenu();
     initYear();
     renderAll();
     initAdmin();
+    initNavScroll();
+    initLogoIntro();
+    initHeroSpotlight();
+    initRipple();
   });
 })();
