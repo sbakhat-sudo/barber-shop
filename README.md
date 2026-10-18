@@ -5,10 +5,10 @@ originale fornito (`Design sito barbershop italiano.zip`).
 
 ## File
 
-- `index.html` — struttura della pagina (hero, servizi, team, galleria, prenotazione, recensioni, orari, contatti, Instagram)
-- `style.css` — stile, tema chiaro/scuro, layout responsive
-- `script.js` — toggle tema, menu mobile, form di prenotazione via WhatsApp, giorno corrente evidenziato negli orari
-- `img/` — metti qui le foto reali (vedi sotto)
+- `index.html` — struttura della pagina (hero, servizi, team, galleria, contatti/prenotazione, recensioni, orari, Instagram)
+- `style.css` — stile moderno, animazioni scroll-reveal, hover, tema chiaro/scuro, layout responsive
+- `script.js` — dati del sito, rendering dinamico, toggle tema, menu mobile, area manager
+- `img/` — foto di default (placeholder finché non carichi le tue, vedi sotto)
 
 ## Come vederlo in locale
 
@@ -23,29 +23,47 @@ poi vai su `http://localhost:8099`.
 (Aprire il file direttamente con doppio click può funzionare, ma alcuni browser bloccano `fetch`/font;
 un piccolo server locale evita sorprese.)
 
+## Prenotazioni
+
+Niente modulo da compilare: nella sezione "Prenota il tuo posto" ci sono tre pulsanti
+**Chiama ora**, **Scrivi un'email** e **WhatsApp** che aprono direttamente l'app giusta
+con il numero/indirizzo del negozio.
+
+## Area manager (modifica contenuti dal sito)
+
+In fondo alla pagina c'è il link **"⚙ Area manager"**. Inserendo la password si entra in
+modalità modifica e si può cambiare: testo hero, servizi e prezzi, team (nome/ruolo/foto),
+foto della galleria e di Instagram, recensioni, orari e dati di contatto.
+
+- **Password attuale:** `Daoudi2026` — modificabile nel file `script.js`, costante `ADMIN_PASSWORD`
+  in cima al file. Va cambiata prima di rendere il sito pubblico.
+- **Importante — limite di questa modalità:** essendo un sito statico senza database, le
+  modifiche fatte in "Area manager" si salvano **solo nel browser/dispositivo** su cui sono
+  state fatte (localStorage). Gli altri visitatori del sito pubblico **non le vedono**.
+  È utile per provare rapidamente come apparirebbe una modifica, ma per aggiornare il sito
+  "vero" bisogna poi riportare i nuovi testi/prezzi/foto direttamente nel codice (`script.js`,
+  oggetto `DEFAULTS`) e ripubblicare. Se vuoi che le modifiche del manager siano visibili a
+  tutti in tempo reale, serve collegare un database (es. Supabase) — basta chiedere.
+- La password è visibile a chiunque legga il codice sorgente: non è una vera misura di
+  sicurezza, serve solo a evitare modifiche accidentali di un visitatore curioso.
+
 ## Foto da aggiungere
 
 Metti le immagini in `img/` con questi nomi esatti (il sito le mostra automaticamente appena presenti,
-finché mancano resta visibile un placeholder col segnaposto):
+finché mancano resta visibile un placeholder col segnaposto). In alternativa puoi caricarle
+direttamente dall'Area manager (vengono salvate solo nel tuo browser, vedi sopra).
 
 - `img/hero.jpg` — foto interno del locale (sfondo della prima sezione)
 - `img/team-1.jpg`, `img/team-2.jpg`, `img/team-3.jpg` — foto dei tre barbieri
 - `img/gal-1.jpg` … `img/gal-6.jpg` — foto galleria
 - `img/ig-1.jpg` … `img/ig-6.jpg` — post Instagram
 
-## Cosa personalizzare
+## Cosa personalizzare nel codice
 
-Nel file `index.html`:
-- Testi hero, servizi/prezzi, team, recensioni, orari, indirizzo/telefono/email
-- Link Instagram reale (cerca `instagram.com/daoudibarber`)
-- Il numero WhatsApp per le prenotazioni è in `script.js`, variabile `PHONE` in cima al file
-
-## Prenotazioni
-
-Il modulo "Prenota" non salva nulla online: apre WhatsApp con un messaggio già pronto
-(nome, telefono, servizio, data, ora) che il cliente invia al negozio.
-Se in futuro vuoi prenotazioni salvate su un database con un'area manager per modificare
-prezzi/testi/foto dal sito stesso, si può aggiungere con Supabase — basta chiedere.
+- Testi hero, servizi/prezzi, team, recensioni, orari, contatti → `script.js`, oggetto `DEFAULTS`
+- Link Instagram reale → `index.html`, cerca `instagram.com/daoudibarber`
+- Numero di telefono/WhatsApp ed email → `script.js`, oggetto `DEFAULTS.contact`
+  (aggiornano automaticamente tutti i pulsanti "Chiama", "Email", "WhatsApp" del sito)
 
 ## Pubblicazione online
 
