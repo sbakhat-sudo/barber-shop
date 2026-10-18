@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Daoudi Barber Shop — Flyer QR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#121314; --bg-alt:#1a1c1d; --text:#ededeb; --muted:#9a9d9f;
+    --accent:#39ff6a; --border:#2a2c2e;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1000px; height:1414px; }
+  body {
+    font-family:'Barlow',sans-serif;
+    background:
+      radial-gradient(900px 500px at 15% -10%, rgba(57,255,106,.16), transparent 60%),
+      radial-gradient(700px 500px at 110% 110%, rgba(57,255,106,.12), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    display:flex; flex-direction:column; align-items:center;
+    padding:90px 80px 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* cornice decorativa */
+  .frame {
+    position:absolute; inset:28px; border:1px solid rgba(57,255,106,.35); border-radius:4px; pointer-events:none;
+  }
+  .frame::before, .frame::after {
+    content:""; position:absolute; width:46px; height:46px; border:2px solid var(--accent);
+  }
+  .frame::before { top:-2px; left:-2px; border-right:none; border-bottom:none; }
+  .frame::after { bottom:-2px; right:-2px; border-left:none; border-top:none; }
+
+  .brand { display:flex; align-items:center; gap:18px; z-index:2; }
+  .brand svg { flex:none; }
+  .brand-text { font-family:'Anton',sans-serif; font-size:40px; letter-spacing:1.5px; text-transform:uppercase; }
+  .brand-text span { color:var(--accent); }
+
+  .tagline { margin-top:10px; color:var(--muted); font-size:16px; letter-spacing:4px; text-transform:uppercase; z-index:2; }
+
+  .headline {
+    margin-top:90px; text-align:center; font-family:'Anton',sans-serif; text-transform:uppercase;
+    font-size:76px; line-height:0.98; z-index:2;
+  }
+  .headline span { color:var(--accent); }
+  .sub { margin-top:26px; max-width:620px; text-align:center; color:var(--muted); font-size:21px; line-height:1.55; z-index:2; }
+
+  .qr-wrap {
+    margin-top:64px; background:#ffffff; border-radius:28px; padding:38px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(57,255,106,.25);
+    position:relative; z-index:2;
+  }
+  .qr-wrap img { display:block; width:440px; height:440px; border-radius:6px; }
+  .qr-corner { position:absolute; width:34px; height:34px; border:4px solid var(--accent); }
+  .qr-corner.tl { top:-10px; left:-10px; border-right:none; border-bottom:none; border-radius:10px 0 0 0; }
+  .qr-corner.tr { top:-10px; right:-10px; border-left:none; border-bottom:none; border-radius:0 10px 0 0; }
+  .qr-corner.bl { bottom:-10px; left:-10px; border-right:none; border-top:none; border-radius:0 0 0 10px; }
+  .qr-corner.br { bottom:-10px; right:-10px; border-left:none; border-top:none; border-radius:0 0 10px 0; }
+
+  .scan-label {
+    margin-top:38px; display:flex; align-items:center; gap:14px; z-index:2;
+    font-weight:800; text-transform:uppercase; letter-spacing:1.5px; font-size:20px;
+  }
+  .scan-label .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px 3px var(--accent); }
+
+  .url-pill {
+    margin-top:22px; padding:14px 34px; border:1px solid var(--border); border-radius:40px;
+    background:var(--bg-alt); color:var(--accent); font-weight:700; font-size:20px; letter-spacing:.5px; z-index:2;
+  }
+
+  .divider { margin-top:70px; width:160px; height:2px; background:linear-gradient(90deg, transparent, var(--accent), transparent); z-index:2; }
+
+  .footer { margin-top:auto; padding-top:60px; text-align:center; z-index:2; }
+  .footer .addr { font-size:18px; color:var(--text); font-weight:600; }
+  .footer .meta { margin-top:10px; font-size:15px; color:var(--muted); letter-spacing:.5px; }
+  .footer .meta b { color:var(--accent); font-weight:700; }
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+
+  <div class="brand">
+    <svg viewBox="0 0 48 48" width="52" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="10" r="5.5" stroke="#39ff6a" stroke-width="2.6"/>
+      <circle cx="10" cy="10" r="1.6" fill="#39ff6a"/>
+      <line x1="14" y1="14" x2="40" y2="40" stroke="#39ff6a" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="10" cy="38" r="5.5" stroke="#39ff6a" stroke-width="2.6"/>
+      <circle cx="10" cy="38" r="1.6" fill="#39ff6a"/>
+      <line x1="14" y1="34" x2="40" y2="8" stroke="#39ff6a" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="24" cy="24" r="2.3" fill="#39ff6a"/>
+    </svg>
+    <div class="brand-text">DAOUDI <span>S.R.L.S</span></div>
+  </div>
+  <div class="tagline">Barber Shop · Genova</div>
+
+  <div class="headline">Taglio netto.<br><span>Stile vero.</span></div>
+  <p class="sub">Scopri i nostri servizi, il team e le foto del salone.<br>Inquadra il codice per aprire il sito e prenotare il tuo posto.</p>
+
+  <div class="qr-wrap">
+    <span class="qr-corner tl"></span><span class="qr-corner tr"></span>
+    <span class="qr-corner bl"></span><span class="qr-corner br"></span>
+    <img src="qr-code.png" alt="QR code sito Daoudi Barber Shop"/>
+  </div>
+
+  <div class="scan-label"><span class="dot"></span>Inquadra con la fotocamera</div>
+  <div class="url-pill">daoudi.store</div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div class="addr">Via Antonio Gramsci 75r, 16100 Genova</div>
+    <div class="meta">Tel <b>+39 351 362 4891</b> &nbsp;·&nbsp; info@daoudibarber.it</div>
+  </div>
+</body>
+</html>
